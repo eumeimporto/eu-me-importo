@@ -78,6 +78,15 @@ details li{margin:.35rem 0}
 .small{font:400 .88rem/1.5 "Figtree",system-ui,sans-serif;color:var(--muted);margin:.8rem 0 0}
 .phrases{display:grid;gap:1rem;grid-template-columns:repeat(auto-fit,minmax(15rem,1fr))}
 .phrases blockquote{margin:0;background:var(--surface);border-left:5px solid var(--accent);border-radius:.4rem;padding:1.1rem 1.3rem;font-size:1.15rem;font-style:italic;line-height:1.55}
+.pick{display:flex;flex-wrap:wrap;gap:.6rem;margin:1rem 0}
+.pick button{font:600 1rem "Figtree",system-ui,sans-serif;color:var(--ink);background:var(--surface);border:2px solid var(--line);border-radius:99px;padding:.65rem 1.1rem;cursor:pointer}
+.pick button[aria-selected="true"]{background:var(--accent);color:var(--accent-ink);border-color:var(--accent)}
+.panel{background:var(--surface);border:1px solid var(--line);border-top:4px solid var(--accent);border-radius:.75rem;padding:1.3rem 1.5rem}
+.panel[hidden]{display:none}
+.panel h3{font-size:1.4rem}
+.panel ol{padding-left:1.3rem;margin:.6rem 0 1rem}
+.panel li{margin:.5rem 0}
+.callrow{display:flex;flex-wrap:wrap;gap:.6rem;margin:.8rem 0 0}
 footer{border-top:1px solid var(--line);padding:2rem 0 3rem;color:var(--muted);font:400 .9rem/1.6 "Figtree",system-ui,sans-serif}
 :root{--bg:#f4f9fc;--surface:#ffffff;--ink:#17283a;--muted:#4b6075;--accent:#f5a623;--accent-ink:#2b1a00;--line:#d3e3ee;--deep:#1b5a8a;--deep-ink:#f4f9fc;--hero1:#bfe3f6;--hero2:#ffe3b8;--hero-ink:#14283a;--hill1:#9fd4b4;--hill2:#6cb995;--hill3:#43987f;--sun:#f5a623;--c2:#3f9bd6;--c3:#43b184;--c4:#ee7f68}
 @media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0e1b29;--surface:#15293c;--ink:#eaf2f8;--muted:#a9bdcd;--line:#28425a;--deep:#0a1624;--hero1:#12304a;--hero2:#5a3d22;--hero-ink:#f3f7fa;--hill1:#1f5a52;--hill2:#17473f;--hill3:#10342e;--sun:#f5b84a}}
@@ -111,6 +120,7 @@ header.hero>.art{position:absolute;z-index:0;left:0;bottom:0;width:100%;height:1
     <a href="#conversar">Como conversar</a>
     <a href="#mitos">Mitos e verdades</a>
     <a href="#frases">Palavras de cuidado</a>
+    <a href="#guia">Como posso te ajudar?</a>
     <a href="#ajuda">Onde buscar ajuda</a>
   </nav>
 
@@ -220,6 +230,64 @@ header.hero>.art{position:absolute;z-index:0;left:0;bottom:0;width:100%;height:1
     <p class="small">Frases escritas pela equipe do blog a partir de orientações gerais de saúde mental. Não são citações de pessoas específicas.</p>
   </section>
 
+  <section id="guia">
+    <h2>Como posso te ajudar?</h2>
+    <p>Escolha o que melhor descreve o seu momento e veja os próximos passos.</p>
+    <div class="pick" role="tablist" aria-label="Escolha uma opção">
+      <button type="button" role="tab" aria-selected="true" data-p="p1">Estou em perigo agora</button>
+      <button type="button" role="tab" aria-selected="false" data-p="p2">Estou me sentindo mal</button>
+      <button type="button" role="tab" aria-selected="false" data-p="p3">Quero ajudar alguém</button>
+      <button type="button" role="tab" aria-selected="false" data-p="p4">Perdi alguém</button>
+    </div>
+
+    <div class="panel" id="p1" role="tabpanel">
+      <h3>Você não precisa passar por isso sozinho(a)</h3>
+      <ol>
+        <li>Ligue agora para o <b>192</b> (SAMU) ou vá ao pronto-socorro mais próximo.</li>
+        <li>Se puder, peça para alguém de confiança ficar com você ou ligue para uma pessoa próxima.</li>
+        <li>Para conversar com alguém agora, ligue <b>188</b> (CVV, 24h, gratuito) ou use o chat em cvv.org.br.</li>
+      </ol>
+      <div class="callrow"><a class="btn" href="tel:192">Ligar 192</a><a class="btn alt" href="tel:188">Ligar 188</a></div>
+    </div>
+
+    <div class="panel" id="p2" role="tabpanel" hidden>
+      <h3>Obrigado por ter chegado até aqui</h3>
+      <p>Sentir que a dor é demais não significa fraqueza. Significa que você precisa de apoio. Alguns passos pequenos:</p>
+      <ol>
+        <li>Fale com o CVV no <b>188</b> a qualquer hora, sem custo, ou pelo chat em cvv.org.br.</li>
+        <li>Escolha uma pessoa de confiança e mande algo simples: “Não estou bem e preciso de companhia.”</li>
+        <li>Procure uma UBS ou um CAPS da sua cidade. O atendimento pelo SUS é gratuito.</li>
+        <li>Você não precisa resolver tudo hoje. Só dar o próximo passo: contar para alguém.</li>
+      </ol>
+      <div class="callrow"><a class="btn" href="tel:188">Ligar 188</a></div>
+    </div>
+
+    <div class="panel" id="p3" role="tabpanel" hidden>
+      <h3>Como apoiar quem está sofrendo</h3>
+      <ol>
+        <li>Pergunte com carinho e diretamente: “Você tem pensado em morrer ou em se machucar?” Perguntar não estimula, costuma trazer alívio.</li>
+        <li>Escute sem julgar e sem minimizar. Evite frases como “isso passa” ou “pense nas coisas boas”.</li>
+        <li>Reconheça a dor: “Deve estar sendo muito difícil. Estou aqui com você.”</li>
+        <li>Ajude a buscar apoio: ofereça acompanhar a pessoa ao CAPS, à UBS ou ligar junto para o 188.</li>
+        <li>Não prometa guardar segredo. Se houver risco imediato, não deixe a pessoa sozinha e ligue para o <b>192</b>.</li>
+        <li>Continue por perto nos dias seguintes. Uma mensagem faz diferença.</li>
+      </ol>
+      <div class="callrow"><a class="btn" href="tel:192">Ligar 192</a><a class="btn alt" href="tel:188">Ligar 188</a></div>
+    </div>
+
+    <div class="panel" id="p4" role="tabpanel" hidden>
+      <h3>Sinto muito pela sua perda</h3>
+      <p>O luto por suicídio costuma trazer dor, culpa, raiva e muitas perguntas sem resposta. Tudo isso é compreensível, e você não é culpado(a) pelo que aconteceu.</p>
+      <ol>
+        <li>Permita-se sentir. Não existe jeito certo nem prazo certo de viver esse luto.</li>
+        <li>Procure quem passou por algo parecido: o CVV mantém grupos gratuitos de apoio a sobreviventes (GASS) em vários postos do país. Veja em cvv.org.br.</li>
+        <li>Busque acompanhamento psicológico na UBS ou no CAPS, ou com um profissional de sua confiança.</li>
+        <li>Se a dor ficar pesada demais, ligue para o <b>188</b>. Você também merece cuidado.</li>
+      </ol>
+      <div class="callrow"><a class="btn" href="tel:188">Ligar 188</a></div>
+    </div>
+  </section>
+
   <section id="ajuda" class="contact">
     <h2>Onde buscar ajuda no Brasil</h2>
     <div class="grid">
@@ -237,5 +305,17 @@ header.hero>.art{position:absolute;z-index:0;left:0;bottom:0;width:100%;height:1
     <p>Setembro Amarelo é o mês de prevenção, mas o cuidado vale o ano inteiro.</p>
   </div>
 </footer>
+<script>
+(function(){
+var bs=document.querySelectorAll(".pick button");
+for(var i=0;i<bs.length;i++){bs[i].addEventListener("click",function(){
+  for(var j=0;j<bs.length;j++){
+    var on=bs[j]===this;
+    bs[j].setAttribute("aria-selected",on?"true":"false");
+    document.getElementById(bs[j].getAttribute("data-p")).hidden=!on;
+  }
+});}
+})();
+</script>
 </body>
 </html>
