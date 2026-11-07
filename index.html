@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<!-- EU me importo - versao 4 -->
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>EU me importo – blog sobre prevenção do suicídio</title>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,600;1,6..72,400&family=Figtree:wght@400;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  box-sizing:border-box;
+  padding-top:env(safe-area-inset-top,0px);
+  padding-bottom:env(safe-area-inset-bottom,0px);
+  --bg:#f3f6f4; --surface:#ffffff; --ink:#1d2b2a; --muted:#51625f;
+  --accent:#e2b007; --accent-ink:#2a2200; --line:#d3ddd9; --deep:#1f4a47; --deep-ink:#f3f6f4;
+  color-scheme:light;
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    --bg:#10201f; --surface:#182b2a; --ink:#e8f0ed; --muted:#a3b7b2;
+    --line:#2b4240; --deep:#0b1716; --deep-ink:#e8f0ed; color-scheme:dark;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#10201f; --surface:#182b2a; --ink:#e8f0ed; --muted:#a3b7b2;
+  --line:#2b4240; --deep:#0b1716; --deep-ink:#e8f0ed; color-scheme:dark;
+}
+html{scroll-padding-top:env(safe-area-inset-top,0px);scroll-behavior:smooth}
+*,*::before,*::after{box-sizing:inherit}
+body{margin:0;background:var(--bg);color:var(--ink);font:400 1.05rem/1.7 "Newsreader",Georgia,serif}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--accent);outline-offset:3px}
+.wrap{max-width:46rem;margin:0 auto;padding:0 1.25rem}
+h1,h2,h3{font-weight:600;line-height:1.2;margin:0 0 .6em}
+.sans{font-family:"Figtree",system-ui,sans-serif}
+
+.help{background:var(--deep);color:var(--deep-ink);font-family:"Figtree",system-ui,sans-serif;font-size:.95rem}
+.help .wrap{padding-top:.7rem;padding-bottom:.7rem;display:flex;flex-wrap:wrap;gap:.4rem 1.2rem;align-items:center;justify-content:space-between}
+.help strong{background:var(--accent);color:var(--accent-ink);padding:.1rem .55rem;border-radius:99px}
+.help a{font-weight:600}
+
+header.hero{padding:4.5rem 0 3rem}
+.hero h1{font-size:clamp(2.6rem,9vw,4.6rem);letter-spacing:-.02em;margin-bottom:.35em}
+.hero p{font-size:1.25rem;color:var(--muted);max-width:34rem;margin:0 0 1.6rem}
+.btn{display:inline-block;font:600 1rem "Figtree",system-ui,sans-serif;background:var(--accent);color:var(--accent-ink);padding:.8rem 1.4rem;border-radius:.5rem;text-decoration:none}
+.btn.alt{background:transparent;color:var(--ink);border:2px solid var(--ink);margin-left:.5rem}
+nav.top{display:flex;gap:1.2rem;flex-wrap:wrap;font-family:"Figtree",system-ui,sans-serif;font-size:.95rem;padding:1rem 0;border-bottom:1px solid var(--line)}
+nav.top a{text-decoration:none;color:var(--muted)}
+nav.top a:hover{color:var(--ink);text-decoration:underline}
+nav.top .brand{font:600 1.15rem "Newsreader",serif;color:var(--ink);margin-right:auto}
+
+section{padding:2.5rem 0}
+.posts article{border-top:1px solid var(--line);padding:1.6rem 0}
+.posts h3{font-size:1.65rem;margin-bottom:.3em}
+.meta{font:400 .9rem "Figtree",system-ui,sans-serif;color:var(--muted);margin:0 0 .7rem}
+details summary{cursor:pointer;font:600 .95rem "Figtree",system-ui,sans-serif;margin-top:.6rem}
+details[open] summary{margin-bottom:1rem}
+details p,details ul{margin:0 0 1rem}
+details li{margin:.35rem 0}
+
+.quote{background:var(--surface);border-left:6px solid var(--accent);padding:1.4rem 1.6rem;font-size:1.35rem;font-style:italic;margin:0}
+.grid{display:grid;gap:1rem;grid-template-columns:repeat(auto-fit,minmax(14rem,1fr))}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:.75rem;padding:1.2rem 1.3rem}
+.card b{display:block;font:600 1.9rem "Figtree",system-ui,sans-serif}
+.card p{margin:.2rem 0 0;color:var(--muted);font-size:.98rem;line-height:1.5}
+.ask h2,.contact h2{font-size:1.9rem}
+.chat .box{background:var(--surface);border:1px solid var(--line);border-radius:.75rem;padding:1rem}
+.log{max-height:24rem;overflow-y:auto;display:flex;flex-direction:column;gap:.7rem;padding:.2rem .2rem 1rem}
+.m{max-width:88%;padding:.7rem 1rem;border-radius:1rem;white-space:pre-wrap;line-height:1.55;font-size:1rem}
+.m.bot{background:var(--bg);border:1px solid var(--line);align-self:flex-start}
+.m.me{background:var(--deep);color:var(--deep-ink);align-self:flex-end}
+.row{display:flex;gap:.6rem;align-items:flex-end}
+.row textarea{flex:1;font:inherit;color:var(--ink);background:var(--bg);border:1px solid var(--line);border-radius:.5rem;padding:.7rem;resize:vertical;min-height:3rem}
+.row .btn{border:0;cursor:pointer}
+.row .btn:disabled{opacity:.6;cursor:wait}
+.crisis{background:var(--accent);color:var(--accent-ink);border-radius:.6rem;padding:1rem 1.2rem;margin:0 0 1rem;font-family:"Figtree",system-ui,sans-serif}
+.crisis[hidden]{display:none}
+.crisis a{font-weight:600}
+.small{font:400 .88rem/1.5 "Figtree",system-ui,sans-serif;color:var(--muted);margin:.8rem 0 0}
+.phrases{display:grid;gap:1rem;grid-template-columns:repeat(auto-fit,minmax(15rem,1fr))}
+.phrases blockquote{margin:0;background:var(--surface);border-left:5px solid var(--accent);border-radius:.4rem;padding:1.1rem 1.3rem;font-size:1.15rem;font-style:italic;line-height:1.55}
+.pick{display:flex;flex-wrap:wrap;gap:.6rem;margin:1rem 0}
+.pick button{font:600 1rem "Figtree",system-ui,sans-serif;color:var(--ink);background:var(--surface);border:2px solid var(--line);border-radius:99px;padding:.65rem 1.1rem;cursor:pointer}
+.pick button[aria-selected="true"]{background:var(--accent);color:var(--accent-ink);border-color:var(--accent)}
+.panel{background:var(--surface);border:1px solid var(--line);border-top:4px solid var(--accent);border-radius:.75rem;padding:1.3rem 1.5rem}
+.panel[hidden]{display:none}
+.panel h3{font-size:1.4rem}
+.panel ol{padding-left:1.3rem;margin:.6rem 0 1rem}
+.panel li{margin:.5rem 0}
+.callrow{display:flex;flex-wrap:wrap;gap:.6rem;margin:.8rem 0 0}
+section.posts{margin:1.5rem 0;padding:2.2rem 1.4rem;border-radius:1.25rem;background:linear-gradient(160deg,var(--hero1),var(--hero2));counter-reset:p}
+.posts .eyebrow{display:inline-block;font:600 .85rem "Figtree",system-ui,sans-serif;letter-spacing:.08em;text-transform:uppercase;background:var(--accent);color:var(--accent-ink);padding:.25rem .8rem;border-radius:99px;margin-bottom:.8rem}
+.posts h2{font-size:clamp(2rem,6vw,2.8rem);color:var(--hero-ink);margin-bottom:.3em}
+.posts .lead{color:var(--hero-ink);margin:0 0 1.5rem;font-size:1.1rem}
+.posts article{position:relative;counter-increment:p;background:var(--surface);color:var(--ink);border:1px solid var(--line);border-left:6px solid var(--accent);border-radius:.9rem;padding:1.4rem 1.5rem 1.2rem 4.2rem;margin-bottom:1rem;box-shadow:0 6px 18px rgba(20,40,58,.12)}
+.posts article:nth-of-type(2){border-left-color:var(--c2)}
+.posts article:nth-of-type(3){border-left-color:var(--c3)}
+.posts article::before{content:"0" counter(p);position:absolute;left:1.1rem;top:1.3rem;font:600 1.5rem "Figtree",system-ui,sans-serif;color:var(--muted)}
+.posts details summary{display:inline-block;background:var(--deep);color:var(--deep-ink);padding:.5rem 1rem;border-radius:99px;font-size:.95rem}
+.posts details[open] summary{margin-bottom:1rem}
+@media (max-width:30rem){.posts article{padding-left:1.4rem;padding-top:3.2rem}}
+section.posts{--s1:#ffd98a;--s2:#ffb38b;--s3:#9fd6f5;--pt:#14283a;position:relative;overflow:hidden;margin:2.5rem 0;padding:3rem 1.5rem 2rem;border-radius:1.6rem;background:linear-gradient(135deg,var(--s1),var(--s2) 50%,var(--s3));box-shadow:0 14px 34px rgba(20,40,58,.22)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) section.posts{--s1:#6b4a1f;--s2:#7a3f3a;--s3:#173a5a;--pt:#f3f7fa}}
+:root[data-theme="dark"] section.posts{--s1:#6b4a1f;--s2:#7a3f3a;--s3:#173a5a;--pt:#f3f7fa}
+.posts>*{position:relative;z-index:1}
+.posts>.sunart{position:absolute;z-index:0;right:-2rem;top:-2rem;width:15rem;height:15rem}
+.posts h2{font-size:clamp(2.4rem,9vw,3.8rem);letter-spacing:-.02em;color:var(--pt)}
+.posts .lead{color:var(--pt);font-size:1.2rem;max-width:34rem}
+.posts .eyebrow{font-size:.95rem;padding:.35rem 1rem}
+.posts article{border-left-width:9px;box-shadow:0 10px 26px rgba(20,40,58,.2);padding-left:4.8rem}
+.posts article::before{left:1.1rem;top:1.2rem;width:2.8rem;height:2.8rem;display:flex;align-items:center;justify-content:center;border-radius:50%;background:var(--accent);color:var(--accent-ink);font-size:1.15rem}
+.posts article:nth-of-type(2)::before{background:var(--c2);color:#fff}
+.posts article:nth-of-type(3)::before{background:var(--c3);color:#fff}
+.posts h3{font-size:1.85rem}
+.posts details summary{background:var(--accent);color:var(--accent-ink);font-size:1.05rem;padding:.65rem 1.3rem}
+@media (max-width:30rem){.posts article{padding-left:1.4rem;padding-top:4.4rem}}
+header.hero>div.qrbox{position:absolute;z-index:2;top:1rem;right:1rem;width:9rem;background:#fff;color:#14283a;border-radius:.8rem;padding:.55rem;text-align:center;box-shadow:0 6px 18px rgba(20,40,58,.25)}
+.qrbox img{display:block;width:100%;height:auto;image-rendering:pixelated}
+.hero .qrbox p{font:600 .74rem/1.3 "Figtree",system-ui,sans-serif;color:#14283a;margin:.45rem 0 0}
+@media (min-width:44rem){.hero h1,.hero>p{padding-right:10.5rem}}
+@media (max-width:43.99rem){header.hero>div.qrbox{position:relative;top:auto;right:auto;margin:0 0 1rem auto;width:8rem}}
+footer{border-top:1px solid var(--line);padding:2rem 0 3rem;color:var(--muted);font:400 .9rem/1.6 "Figtree",system-ui,sans-serif}
+:root{--bg:#f4f9fc;--surface:#ffffff;--ink:#17283a;--muted:#4b6075;--accent:#f5a623;--accent-ink:#2b1a00;--line:#d3e3ee;--deep:#1b5a8a;--deep-ink:#f4f9fc;--hero1:#bfe3f6;--hero2:#ffe3b8;--hero-ink:#14283a;--hill1:#9fd4b4;--hill2:#6cb995;--hill3:#43987f;--sun:#f5a623;--c2:#3f9bd6;--c3:#43b184;--c4:#ee7f68}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0e1b29;--surface:#15293c;--ink:#eaf2f8;--muted:#a9bdcd;--line:#28425a;--deep:#0a1624;--hero1:#12304a;--hero2:#5a3d22;--hero-ink:#f3f7fa;--hill1:#1f5a52;--hill2:#17473f;--hill3:#10342e;--sun:#f5b84a}}
+:root[data-theme="dark"]{--bg:#0e1b29;--surface:#15293c;--ink:#eaf2f8;--muted:#a9bdcd;--line:#28425a;--deep:#0a1624;--hero1:#12304a;--hero2:#5a3d22;--hero-ink:#f3f7fa;--hill1:#1f5a52;--hill2:#17473f;--hill3:#10342e;--sun:#f5b84a}
+header.hero{position:relative;overflow:hidden;margin:1.5rem 0 1rem;padding:3.2rem 1.5rem 11rem;border-radius:1.25rem;background:linear-gradient(160deg,var(--hero1),var(--hero2));color:var(--hero-ink)}
+header.hero>:not(.art){position:relative;z-index:1}
+header.hero>.art{position:absolute;z-index:0;left:0;bottom:0;width:100%;height:11rem}
+.hero h1,.hero p{color:var(--hero-ink)}
+.hero .btn.alt{color:var(--hero-ink);border-color:var(--hero-ink)}
+.quoteband{background:linear-gradient(100deg,var(--hero1),var(--hero2));padding:2rem 0}
+.ico{width:3rem;height:3rem;display:block;margin-bottom:.4rem}
+.grid .card{border-top:4px solid var(--accent)}
+.grid .card:nth-child(4n+2){border-top-color:var(--c2)}
+.grid .card:nth-child(4n+3){border-top-color:var(--c3)}
+.grid .card:nth-child(4n+4){border-top-color:var(--c4)}
+</style>
+</head>
+<body>
+
+<div class="help" role="region" aria-label="Ajuda imediata">
+  <div class="wrap">
+    <span><strong>Precisa de ajuda agora?</strong> Ligue <a href="tel:188">188</a> (CVV, 24h, gratuito) ou <a href="tel:192">192</a> (SAMU) em caso de emergência.</span>
+    <a href="#ajuda">Ver todos os apoios</a>
+  </div>
+</div>
+
+<div class="wrap">
+  <nav class="top" aria-label="Principal">
+    <span class="brand">EU me importo</span>
+    <a href="#textos">Leituras</a>
+    <a href="#conversar">Como conversar</a>
+    <a href="#mitos">Mitos e verdades</a>
+    <a href="#frases">Palavras de cuidado</a>
+    <a href="#guia">Como posso te ajudar?</a>
+    <a href="#ajuda">Onde buscar ajuda</a>
+  </nav>
+
+  <header class="hero">
+    <svg class="art" viewBox="0 0 800 220" preserveAspectRatio="xMidYMax slice" aria-hidden="true">
+      <circle cx="620" cy="125" r="130" style="fill:var(--sun);opacity:.12"/>
+      <circle cx="620" cy="125" r="90" style="fill:var(--sun);opacity:.25"/>
+      <circle cx="620" cy="125" r="54" style="fill:var(--sun)"/>
+      <path d="M110 55q10-10 20 0q10-10 20 0M170 38q8-8 16 0q8-8 16 0" style="fill:none;stroke:var(--hero-ink);stroke-width:2;stroke-linecap:round"/>
+      <path d="M0 150Q200 90 400 140T800 120V220H0Z" style="fill:var(--hill1)"/>
+      <path d="M0 180Q220 130 420 170T800 160V220H0Z" style="fill:var(--hill2)"/>
+      <path d="M0 205Q250 170 500 200T800 190V220H0Z" style="fill:var(--hill3)"/>
+      <g style="fill:var(--accent)"><circle cx="90" cy="200" r="4"/><circle cx="130" cy="196" r="3"/><circle cx="560" cy="205" r="4"/><circle cx="700" cy="198" r="3"/></g>
+    </svg>
+    <div class="qrbox"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAG0AAABvCAIAAABpUtkKAAAQAElEQVR4nOzdZ/wdRdUH8A3EgvLYey+IDYgKIsGAWEDsiB1iN4gKigqC2BALChZQUdCoiIoVFMVOEQRRQeyNYu9SpHfyfD/7I+Nkd+/e+4fwLufF/WyZnXLmlN85M7t3/rJly5pVdK1ptWYVrQxaxceVQ6v4uHJoFR9XDs0fvHrhhReed955c3JBt73tbVdfffUcX3DBBR6fN2/e7W9/+6uuuuo///nPlVdeeZOb3GTNNdccfNbds846S8lb3/rWKrnooov++9//rrbaajkdaVQxhW92s5vd6EY3KhfPOeeciy+++P9auvzyy88++2z155YO6IZTXdJcypx77rnG28xM17/+9W95y1saXX1xmI9f+tKX3v72t5fmp9L8+fOPOeaY29zmNjn9/Oc//853vvMGN7jBz3/+c6N6ylOecuaZZ+62227Pe97zBh//+9//vv322yvzxS9+8c53vvM3vvGN3XffHXe+/OUvm4mRdvfee+9DDz10r7322nrrrctFp1/5ylde8YpXqPP0009/yUte8o9//CO3XvSiF+28887m7MlPfjL+vvSlL335y1/+/ve//5Of/GQzM22wwQYf+9jHjK6+OMxH83zaaaddccUVzWx0vetdry6si6eeeuoaa6zh2PXf//73//znPzF00uOk5k9/+pMyDpwSEI+b85yOkEeUJPv9i/rg+NJLL9X6X/7yl9wyVenSGWecQSRz6kD5ZmaieX1NnT/yAEZstdVWd7zjHUfK6BDhHSlw4xvfmESc19I+++xT36IaG2200aJFi5pR2nfffTF0/fXXf8QjHvGd73znpz/9abn1y1/+0u83v/lNvCgX73rXuxI6NRfVc6CVhzzkITe84Q3f9a536QnF77TCgOywww4EYqQnxHwSx8f4yJq87GUve+hDHzpS5qtf/eo4H1Xyhje8wQS++tWv3mOPPepbhve6171uvH4PKsMI7rjjjvhIiw888MBOmc+1VE4PPvjgZz/72Z2GHvvYx+66667sgN9Bu880ve1tbzPrzWT64x//eE34GKIFX/va1/71r391evasZz2r4zeU/PjHP66XP/jBD3L64Q9/mFCzj34XLlzInBMERtDkb7nllre4xS0cfOQjH6Fftdbf5z732W677dZsyekL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" alt="QR code para apoiar o projeto" width="109" height="111"><p>Escaneie o QR code e nos ajude a realizar um projeto futuro.</p></div>
+    <h1>Falar sobre isso salva vidas.</h1>
+    <p>Um blog sobre prevenção do suicídio, escrito com cuidado. Aqui você encontra informação, formas de apoiar quem está sofrendo e caminhos para pedir ajuda.</p>
+    <a class="btn" href="#textos">Ler os textos</a><a class="btn alt" href="#ajuda">Preciso de ajuda</a>
+  </header>
+</div>
+
+<section class="quoteband">
+  <div class="wrap">
+    <blockquote class="quote">A dor é real, mas ela não é permanente, e existem pessoas prontas para ouvir você.</blockquote>
+  </div>
+</section>
+
+<main class="wrap">
+  <section id="textos" class="posts">
+    <svg class="sunart" viewBox="0 0 200 200" aria-hidden="true"><circle cx="150" cy="50" r="95" fill="#fff" opacity=".18"/><circle cx="150" cy="50" r="62" fill="#fff" opacity=".28"/><circle cx="150" cy="50" r="34" fill="#f5a623"/></svg>
+    <span class="eyebrow">Comece por aqui</span>
+    <h2>Leituras que acolhem</h2>
+    <p class="lead">Textos curtos e cuidadosos para entender o que se sente, apoiar quem está ao seu lado e saber como pedir ajuda.</p>
+
+    <article>
+      <h3>Sinais de que alguém pode precisar de apoio</h3>
+      <p class="meta">Leitura de 3 min · Para quem convive com alguém</p>
+      <p>Nem sempre o sofrimento aparece de forma óbvia. Quase sempre há mudanças que, juntas, pedem atenção.</p>
+      <details>
+        <summary>Continuar lendo</summary>
+        <p>Preste atenção quando várias dessas mudanças aparecem juntas ou duram semanas:</p>
+        <ul>
+          <li>Isolamento: a pessoa para de responder, evita encontros e abandona o que gostava de fazer.</li>
+          <li>Falas de desesperança, de ser um peso para os outros ou de que nada vai melhorar.</li>
+          <li>Mudanças no sono, no apetite ou no cuidado consigo mesma.</li>
+          <li>Despedidas fora de contexto, como dar objetos de valor ou “resolver pendências”.</li>
+          <li>Alívio repentino logo após um período muito pesado.</li>
+        </ul>
+        <p>Se você notou algo assim, não espere ter certeza. Uma conversa sincera vale mais do que o medo de errar.</p>
+      </details>
+    </article>
+
+    <article id="conversar">
+      <h3>Como conversar com quem está sofrendo</h3>
+      <p class="meta">Leitura de 4 min · Passo a passo</p>
+      <p>Você não precisa ter as palavras perfeitas. Presença e escuta já fazem muita diferença.</p>
+      <details>
+        <summary>Continuar lendo</summary>
+        <ul>
+          <li><b>Pergunte diretamente.</b> Algo como: “Tenho notado você diferente. Você tem pensado em morrer ou em se machucar?” Perguntar não coloca a ideia na cabeça de ninguém.</li>
+          <li><b>Escute sem pressa.</b> Evite julgar, minimizar (“isso passa”) ou dar sermão. Deixe a pessoa falar.</li>
+          <li><b>Valide o sofrimento.</b> “Faz sentido você estar exausto(a). Obrigado(a) por confiar em mim.”</li>
+          <li><b>Incentive ajuda profissional.</b> Ofereça acompanhar a pessoa ao posto de saúde, ao CAPS ou a uma consulta.</li>
+          <li><b>Não prometa segredo.</b> Se houver risco, envolva outras pessoas de confiança e serviços de emergência.</li>
+          <li><b>Continue por perto.</b> Mande mensagem, apareça, ligue de novo nos dias seguintes.</li>
+        </ul>
+        <p>Se o risco for imediato, não deixe a pessoa sozinha e ligue para o SAMU (192).</p>
+      </details>
+    </article>
+
+    <article>
+      <h3>Cuidar de si quando você também está no limite</h3>
+      <p class="meta">Leitura de 3 min · Para quem está sofrendo</p>
+      <p>Se você chegou até aqui por causa da sua própria dor, obrigado por continuar lendo. Isso já exigiu força.</p>
+      <details>
+        <summary>Continuar lendo</summary>
+        <p>Pensamentos de morrer costumam aparecer quando a dor parece maior do que os recursos para lidar com ela. É um sinal de que você precisa de apoio, não de que algo está errado com o seu valor.</p>
+        <ul>
+          <li>Fale com uma pessoa de confiança hoje, mesmo que seja só: “Não estou bem.”</li>
+          <li>Ligue para o CVV no 188, a qualquer hora, ou converse por chat em cvv.org.br.</li>
+          <li>Procure uma UBS ou um CAPS. O atendimento pelo SUS é gratuito.</li>
+          <li>Se estiver em perigo agora, ligue 192 ou vá ao pronto-socorro mais próximo.</li>
+        </ul>
+        <p>Você não precisa resolver tudo hoje. Precisa só do próximo passo: contar para alguém.</p>
+      </details>
+    </article>
+  </section>
+
+  <section id="mitos">
+    <h2>Mitos e verdades</h2>
+    <div class="grid">
+      <div class="card"><b>Mito</b><p>“Quem quer se matar não avisa.” Muitas pessoas dão sinais, diretos ou indiretos.</p></div>
+      <div class="card"><b>Mito</b><p>“Perguntar sobre suicídio estimula.” Na verdade, perguntar costuma trazer alívio.</p></div>
+      <div class="card"><b>Verdade</b><p>A maioria dos casos pode ser prevenida com apoio, tratamento e rede de cuidado.</p></div>
+      <div class="card"><b>Verdade</b><p>Transtornos mentais tratáveis, como a depressão, estão ligados a muitos casos. Buscar tratamento protege.</p></div>
+    </div>
+  </section>
+
+  <section id="frases">
+    <svg class="ico" viewBox="0 0 48 48" aria-hidden="true"><path d="M24 41C8 29 5 18 12 12c5-4 10-2 12 3c2-5 7-7 12-3c7 6 4 17-12 29z" style="fill:var(--c4)"/></svg>
+    <h2>Palavras de cuidado</h2>
+    <p>Mensagens inspiradas nas orientações de profissionais de saúde mental para quem está sofrendo e para quem quer ajudar.</p>
+    <div class="phrases">
+      <blockquote>“Pedir ajuda não é fraqueza. É uma das decisões mais corajosas que existem.”</blockquote>
+      <blockquote>“Você não precisa dar conta de tudo sozinho(a). Dividir o peso faz parte do cuidado.”</blockquote>
+      <blockquote>“A dor pode parecer eterna, mas sentimentos mudam, mesmo quando é difícil acreditar nisso hoje.”</blockquote>
+      <blockquote>“Escutar sem julgar já é cuidar. Muitas vezes é tudo de que a pessoa precisa naquele momento.”</blockquote>
+      <blockquote>“Perguntar com cuidado se alguém pensa em suicídio não planta a ideia. Abre espaço para a pessoa falar.”</blockquote>
+      <blockquote>“Pensar em morrer não diz quem você é. Diz que existe uma dor pedindo cuidado.”</blockquote>
+    </div>
+    <p class="small">Frases escritas pela equipe do blog a partir de orientações gerais de saúde mental. Não são citações de pessoas específicas.</p>
+  </section>
+
+  <section id="guia">
+    <h2>Como posso te ajudar?</h2>
+    <p>Escolha o que melhor descreve o seu momento e veja os próximos passos.</p>
+    <div class="pick" role="tablist" aria-label="Escolha uma opção">
+      <button type="button" role="tab" aria-selected="true" data-p="p1">Estou em perigo agora</button>
+      <button type="button" role="tab" aria-selected="false" data-p="p2">Estou me sentindo mal</button>
+      <button type="button" role="tab" aria-selected="false" data-p="p3">Quero ajudar alguém</button>
+      <button type="button" role="tab" aria-selected="false" data-p="p4">Perdi alguém</button>
+    </div>
+
+    <div class="panel" id="p1" role="tabpanel">
+      <h3>Você não precisa passar por isso sozinho(a)</h3>
+      <ol>
+        <li>Ligue agora para o <b>192</b> (SAMU) ou vá ao pronto-socorro mais próximo.</li>
+        <li>Se puder, peça para alguém de confiança ficar com você ou ligue para uma pessoa próxima.</li>
+        <li>Para conversar com alguém agora, ligue <b>188</b> (CVV, 24h, gratuito) ou use o chat em cvv.org.br.</li>
+      </ol>
+      <div class="callrow"><a class="btn" href="tel:192">Ligar 192</a><a class="btn alt" href="tel:188">Ligar 188</a></div>
+    </div>
+
+    <div class="panel" id="p2" role="tabpanel" hidden>
+      <h3>Obrigado por ter chegado até aqui</h3>
+      <p>Sentir que a dor é demais não significa fraqueza. Significa que você precisa de apoio. Alguns passos pequenos:</p>
+      <ol>
+        <li>Fale com o CVV no <b>188</b> a qualquer hora, sem custo, ou pelo chat em cvv.org.br.</li>
+        <li>Escolha uma pessoa de confiança e mande algo simples: “Não estou bem e preciso de companhia.”</li>
+        <li>Procure uma UBS ou um CAPS da sua cidade. O atendimento pelo SUS é gratuito.</li>
+        <li>Você não precisa resolver tudo hoje. Só dar o próximo passo: contar para alguém.</li>
+      </ol>
+      <div class="callrow"><a class="btn" href="tel:188">Ligar 188</a></div>
+    </div>
+
+    <div class="panel" id="p3" role="tabpanel" hidden>
+      <h3>Como apoiar quem está sofrendo</h3>
+      <ol>
+        <li>Pergunte com carinho e diretamente: “Você tem pensado em morrer ou em se machucar?” Perguntar não estimula, costuma trazer alívio.</li>
+        <li>Escute sem julgar e sem minimizar. Evite frases como “isso passa” ou “pense nas coisas boas”.</li>
+        <li>Reconheça a dor: “Deve estar sendo muito difícil. Estou aqui com você.”</li>
+        <li>Ajude a buscar apoio: ofereça acompanhar a pessoa ao CAPS, à UBS ou ligar junto para o 188.</li>
+        <li>Não prometa guardar segredo. Se houver risco imediato, não deixe a pessoa sozinha e ligue para o <b>192</b>.</li>
+        <li>Continue por perto nos dias seguintes. Uma mensagem faz diferença.</li>
+      </ol>
+      <div class="callrow"><a class="btn" href="tel:192">Ligar 192</a><a class="btn alt" href="tel:188">Ligar 188</a></div>
+    </div>
+
+    <div class="panel" id="p4" role="tabpanel" hidden>
+      <h3>Sinto muito pela sua perda</h3>
+      <p>O luto por suicídio costuma trazer dor, culpa, raiva e muitas perguntas sem resposta. Tudo isso é compreensível, e você não é culpado(a) pelo que aconteceu.</p>
+      <ol>
+        <li>Permita-se sentir. Não existe jeito certo nem prazo certo de viver esse luto.</li>
+        <li>Procure quem passou por algo parecido: o CVV mantém grupos gratuitos de apoio a sobreviventes (GASS) em vários postos do país. Veja em cvv.org.br.</li>
+        <li>Busque acompanhamento psicológico na UBS ou no CAPS, ou com um profissional de sua confiança.</li>
+        <li>Se a dor ficar pesada demais, ligue para o <b>188</b>. Você também merece cuidado.</li>
+      </ol>
+      <div class="callrow"><a class="btn" href="tel:188">Ligar 188</a></div>
+    </div>
+  </section>
+
+  <section id="ajuda" class="contact">
+    <h2>Onde buscar ajuda no Brasil</h2>
+    <div class="grid">
+      <div class="card"><b><a href="tel:188">188</a></b><p>CVV – Centro de Valorização da Vida. Apoio emocional gratuito, 24 horas. Também por chat e e-mail em cvv.org.br.</p></div>
+      <div class="card"><b><a href="tel:192">192</a></b><p>SAMU – urgência e emergência médica, inclusive em crise.</p></div>
+      <div class="card"><b>CAPS e UBS</b><p>Serviços de saúde mental e atenção básica do SUS, sem custo. Procure a unidade mais próxima.</p></div>
+      <div class="card"><b>Pronto-socorro</b><p>Em risco imediato, vá à emergência mais próxima ou peça que alguém leve você.</p></div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <p><b>EU me importo</b> tem caráter informativo e não substitui avaliação de um profissional de saúde. Em situações de risco, procure ajuda imediatamente. O conteúdo segue boas práticas de comunicação responsável sobre suicídio: sem descrição de métodos e com foco em apoio e esperança.</p>
+    <p>Setembro Amarelo é o mês de prevenção, mas o cuidado vale o ano inteiro.</p>
+    <p>Versão 4 · atualizado em 07/11/2026</p>
+  </div>
+</footer>
+<script>
+(function(){
+var bs=document.querySelectorAll(".pick button");
+for(var i=0;i<bs.length;i++){bs[i].addEventListener("click",function(){
+  for(var j=0;j<bs.length;j++){
+    var on=bs[j]===this;
+    bs[j].setAttribute("aria-selected",on?"true":"false");
+    document.getElementById(bs[j].getAttribute("data-p")).hidden=!on;
+  }
+});}
+})();
+</script>
+</body>
+</html>
